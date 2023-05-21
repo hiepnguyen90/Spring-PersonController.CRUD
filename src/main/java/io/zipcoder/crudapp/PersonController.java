@@ -25,17 +25,15 @@ public class PersonController {
     }
 
     @PostMapping("/people")
-    public ResponseEntity<Person> createPerson(@RequestBody Person p){
-        personService.save(p);
-        return new ResponseEntity<>(p, HttpStatus.CREATED);
+    public ResponseEntity<Person> creatPerson(@RequestBody Person p) {
+        Person person = personService.save(p);
+        return new ResponseEntity<>(person, HttpStatus.CREATED);
     }
 
     @GetMapping("/people")
-    public ResponseEntity<List<Person>> getPersonList(){
-        personService.findAll();
+    public ResponseEntity<List<Person>> getPersonList() {
         return new ResponseEntity<>(personService.findAll(), HttpStatus.OK);
     }
-
     @GetMapping("/{id}")
     public ResponseEntity<Person> getPerson(@PathVariable("id") int id){
         personService.findById(id);

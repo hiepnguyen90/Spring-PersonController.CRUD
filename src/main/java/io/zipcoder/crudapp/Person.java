@@ -9,18 +9,21 @@ import javax.persistence.Id;
 public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Integer id;
+    private Integer id;
+    private String firstName;
+    private String lastName;
 
-    String name;
-    
-    String lastName;
+    public Person() {
+    }
 
-    public Person(){
+    public Person(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 
     public Person(Integer id, String name, String lastName) {
         this.id = id;
-        this.name = name;
+        this.firstName = name;
         this.lastName = lastName;
     }
 
@@ -33,11 +36,11 @@ public class Person {
     }
 
     public String getName() {
-        return name;
+        return firstName;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.firstName = name;
     }
 
     public String getLastName() {
@@ -48,6 +51,4 @@ public class Person {
         this.lastName = lastName;
     }
 
-    
-    
 }

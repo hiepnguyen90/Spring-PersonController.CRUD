@@ -17,11 +17,11 @@ public class PersonService {
     public Person save(Person person) {
         return personRepository.save(person);
     }
-    public Person findById(Integer id) {
+    public Person findById(int id) {
         return personRepository.findOne(id);
     }
     
-    public void deleteById(Integer id) {
+    public void deleteById(int id) {
         personRepository.delete(id);
     }
 
